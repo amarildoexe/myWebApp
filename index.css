@@ -1,0 +1,74 @@
+:root {
+  --primary-bg-color: #0e001c;
+  --primary-color: #ff00b7;
+  --primary-color-hover: #8a0063;
+}
+
+body {
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 302px;
+    background-color: var(--primary-bg-color);
+}
+
+.title{
+    color: var(--primary-color);
+    font-size: 1em;
+}
+
+label {
+    color: var(--primary-color);
+}
+
+input {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 4px;
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+    font-weight: bold;
+}
+
+button:hover {
+    background: var(--primary-color-hover);
+}
+
+#delete-btn {
+    background: var(--primary-color-hover);
+    color: white;
+}
+
+
+#input-links{
+    padding: 4px;
+}
+#input-links ul{
+    color: var(--primary-color);
+    list-style: none;
+}
+
+#input-links li{
+    list-style: none;
+}
+
+#input-links li:hover{
+    color: var(--primary-color-hover);
+    list-style: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#input-links a{
+    color: var(--primary-color);
+    list-style: none;
+}
