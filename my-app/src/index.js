@@ -6,8 +6,8 @@ import { getDatabase,
          remove } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
 
 const firebaseConfig = {
-    databaseURL: DATABASE_URL
-}
+    databaseURL: import.meta.env.VITE_DATABASE_URL
+};
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
