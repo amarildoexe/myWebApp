@@ -14,22 +14,24 @@ const database = getDatabase(app)
 const referenceInDB = ref(database, "leads")
 /// START OF THE APP
 
-
+const titleEl = document.getElementById("title-el")
 const inputEl = document.getElementById("input-el")
 const inputLinks = document.getElementById("input-links")
 const inputBtn = document.getElementById("input-btn")
 const deleteBtn = document.getElementById("delete-btn")
 
- 
+
+
 function render(leads){
     let listItems = ""
     for (let i=0; i < leads.length; i++){
         listItems += `
             <li>
-                <a target='_blank' href='${leads[i]}'> 
-                    ${leads[i]}
-                </a>
-            </li>`
+                <strong>${leads[i].title}</strong><br>
+                <span>${leads[i].content}</span><br/><br/>
+                <small class="date">${formatDate(leads[i].createdAt)}</small>
+            </li>
+        `
     }
     inputLinks.innerHTML = listItems
 }
@@ -50,6 +52,20 @@ onValue(referenceInDB, function(snapshot) {
 })
 
 inputBtn.addEventListener("click", function(){
-    push(referenceInDB, inputEl.value)
+    push(referenceInDB, {
+        title: titleEl.value,
+        content: inputEl.value,
+        createdAt: Date.now()
+    })
+    titleEl.value = ""
     inputEl.value = ""
 })
+
+function formatDate(timestamp){
+    const date = new Date(timestamp)
+    return date.toLocaleString() 
+}
+
+const leads = Object.values(snapshotValues)
+    .filter(item => item.createdAt)
+    .sort((a, b) => b.createdAt - a.createdAt)
