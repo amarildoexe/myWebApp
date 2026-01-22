@@ -19,6 +19,23 @@ const inputEl = document.getElementById("input-el")
 const inputLinks = document.getElementById("input-links")
 const inputBtn = document.getElementById("input-btn")
 const deleteBtn = document.getElementById("delete-btn")
+const greetingEl = document.getElementById("userGreeting")
+
+
+function greetUser(){
+    let time = new Date().getHours()
+    let greeting = ""
+    if (time >= 5 && time < 12){
+        greeting = "Good Morning!"
+    } else if (time >= 12 && time < 18) {
+        greeting = "Good afternoon!"
+    } else {
+        greeting = "Good evening!"
+    }
+    greetingEl.textContent = greeting
+}
+
+greetUser()
 
 
 

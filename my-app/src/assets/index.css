@@ -144,4 +144,10 @@ button:hover {
     font-size: 0.9em;
     font-family: monospace;
     font-weight: bold;
+    color: rgb(205, 200, 200);
+}
+
+#userGreeting{
+    color: white;
+    font-size: 2rem;
 }
